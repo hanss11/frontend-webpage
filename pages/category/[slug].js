@@ -8,14 +8,14 @@ const Category = ({ category, categories }) => {
     metaTitle: category.name,
     metaDescription: `All ${category.name} articles`,
   };
-  
+  const  categoryPublished = category.articles.filter(category => category.status == 'published')
   return (
     <Layout categories={categories}>
       <Seo seo={seo} />
       <div className="uk-section">
         <div className="uk-container uk-container-large">
           <h1>{category.name}</h1>
-          <Articles articles={category.articles} />
+          <Articles articles={categoryPublished} />
         </div>
       </div>
     </Layout>
